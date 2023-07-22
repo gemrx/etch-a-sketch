@@ -31,7 +31,7 @@ function setCellBackground(event){
     const colorPicker = document.querySelector('#colorpicker')
     const isLeftButtonPressed = event.buttons === 1;
 
-    if ((event.type === 'click') || (event.type === 'mouseover' && isLeftButtonPressed)) {
+    if ((event.type === 'click') || (event.type === 'mousemove' && isLeftButtonPressed)) {
         switch (currentMode) {
             case 'color':
                 event.target.style.backgroundColor = colorPicker.value;
@@ -61,7 +61,7 @@ function setGridDimensions(columnsNumber, rowsNumber){
             const newCell = document.createElement('div');
             newCell.classList.add('cell');
             newCell.addEventListener('click', setCellBackground);
-            newCell.addEventListener('mouseover', setCellBackground);
+            newCell.addEventListener('mousemove', setCellBackground);
 
             // Add the cell to the column
             newColumn.appendChild(newCell);
